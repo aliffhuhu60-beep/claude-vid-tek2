@@ -19,8 +19,8 @@ YELLOW = (255, 214, 64)
 WHITE = (255, 255, 255)
 DARK = (22, 26, 20)
 
-# gameplay window in the 1920x1080 canvas (source 1728x1080 scaled to 1472x920)
-GX, GY, GW, GH = 224, 14, 1472, 920
+# gameplay window in the 1920x1080 canvas (source 1728x1080 scaled to 1568x980, max size without cropping)
+GX, GY, GW, GH = 176, 0, 1568, 980
 SCALE = GW / 1728.0
 # teacher inset & facecam circle in SOURCE pixels
 INSET = (13, 802, 511, 1080)
@@ -213,33 +213,35 @@ def credits_frame(t, bg=None):
 
 # ---------------------------------------------------------------- main layout chrome
 def chrome_bg():
-    """Static canvas behind the gameplay window: blurred scenery + grass blocks + frame."""
+    """Static canvas around the (near full-screen) gameplay: slim blurred-scenery side strips,
+    a dark subtitle band at the bottom with a thin grass edge."""
     im = plate((W, H), blur=14, darken=0.55).convert("RGBA")
-    im.paste(ground_strip(W, 48, 3, seed=9), (0, H - 144))
-    dk = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    dd = ImageDraw.Draw(dk)
-    dd.rectangle((0, H - 144, W, H), fill=(0, 0, 0, 150))  # keep subtitle band readable
-    im = Image.alpha_composite(im, dk)
     d = ImageDraw.Draw(im)
-    pixel_frame(d, (GX - 12, GY - 6, GX + GW + 11, GY + GH + 11), color=(0, 0, 0), inner=GREEN, t=6)
+    band = GY + GH
+    d.rectangle((0, band, W, H), fill=(14, 16, 12, 255))           # subtitle band
+    gs = ground_strip(W, 16, 1, seed=9)                              # thin grass edge above the band
+    im.paste(gs.crop((0, 0, W, 6)), (0, band))
+    d = ImageDraw.Draw(im)
+    d.rectangle((GX - 4, GY, GX - 1, band - 1), fill=GREEN)            # slim side edges
+    d.rectangle((GX + GW, GY, GX + GW + 3, band - 1), fill=GREEN)
     return im.convert("RGB")
 
 
 def side_label(im, text_top, text_bottom=None):
     d = ImageDraw.Draw(im)
-    f = font(SILK, 22)
+    f = font(SILK, 18)
     x = GX // 2
-    d.text((x, 60), "MISI", font=f, fill=YELLOW, anchor="mm")
-    d.text((x, 88), "PENYELAMAT", font=f, fill=YELLOW, anchor="mm")
-    d.text((x, 116), "AYAT", font=f, fill=YELLOW, anchor="mm")
-    y = 190
+    for i, w in enumerate(("MISI", "PENYELAMAT", "AYAT")):
+        d.text((x, 50 + i * 26), w, font=f, fill=YELLOW, anchor="mm")
+    d.line((x - 50, 140, x + 50, 140), fill=GREEN, width=3)
+    y = 175
     for line in text_top.split("\n"):
-        d.text((x, y), line, font=font(SILK, 20), fill=WHITE, anchor="mm")
-        y += 28
+        d.text((x, y), line, font=font(SILK, 17), fill=WHITE, anchor="mm")
+        y += 26
 
 
 def speed_badge(im, speed):
     d = ImageDraw.Draw(im)
     x = GX + GW + (W - GX - GW) // 2
-    d.rectangle((x - 70, 40, x + 70, 96), fill=(16, 20, 14), outline=YELLOW, width=4)
-    d.text((x, 68), f">> {speed:.1f}x", font=font(SILK, 24), fill=YELLOW, anchor="mm")
+    d.rectangle((x - 66, 36, x + 66, 88), fill=(16, 20, 14), outline=YELLOW, width=4)
+    d.text((x, 62), f">> {speed:.1f}x", font=font(SILK, 22), fill=YELLOW, anchor="mm")

@@ -3,7 +3,16 @@
 **Penyedia:** MOHAMAD ALIFF BIN AHMAD SHAHABUDDIN · **Pensyarah:** PUAN JULINA BINTI TARIKAT
 **Institusi:** INSTITUT PENDIDIKAN GURU KAMPUS TUN HUSSEIN ONN · **Kursus:** EDUP3133: TEKNOLOGI UNTUK PENGAJARAN DAN PEMBELAJARAN
 
-> Status: **FASA C — MENUNGGU KELULUSAN.** Tiada rendering akhir dibuat lagi. Fail asal di Google Drive tidak diubah.
+> Status: **DILULUSKAN — FASA D/E.** Fail asal di Google Drive tidak diubah.
+
+### Keputusan pengguna (selepas semakan)
+1. Facecam bulat (pemain bermain) **tidak diubah atau disentuh langsung**.
+2. Nama "Aliff" — diluluskan; suara asal kekal.
+3. Sari kata ikut sebutan sebenar (dunia Penyelamat, 5 warna, "Saya ucapkan kepada…").
+4. Ayat terputus 15:44 dikekalkan.
+5. Muzik chiptune lembut hanya pada pembukaan & penutup.
+6. Kad penutup: ikut kesesuaian → baris kecil "Disediakan oleh: MOHAMAD ALIFF BIN AHMAD SHAHABUDDIN" dikekalkan di bawah teks penghargaan.
+7. **Perubahan susun atur:** gameplay dibesarkan hampir skrin penuh — **1568×980** (saiz maksimum tanpa memotong gameplay; rakaman asal 16:10), rapat ke atas, dengan **jalur sari kata 100 px** di bawah. Sari kata 36 px.
 
 ---
 
@@ -77,12 +86,12 @@ Peraturan kelajuan yang digunakan:
 | 25 | 15:22.5 | 15:34.5 | — (baharu) | **SETINGGI-TINGGI PENGHARGAAN** kepada pensyarah yang dihormati **PUAN JULINA BINTI TARIKAT**, Pensyarah EDUP3133: Teknologi untuk Pengajaran dan Pembelajaran, Institut Pendidikan Guru Kampus Tun Hussein Onn | Kad penutup bertema Minecraft (sepadan pembukaan), muzik lembut, fade ke hitam | — | Tiada (teks kad) | Landskap Minecraft |
 
 ### Elemen visual tetap (semua babak gameplay)
-- Kanvas 1920×1080: gameplay diskala ke **1472×920** (tiada potongan, tiada herotan) dalam bingkai piksel hijau/hitam; latar kanvas = landskap Minecraft kabur dari dunia anda + barisan blok rumput/tanah di bawah.
+- Kanvas 1920×1080: gameplay diskala ke **1568×980** (hampir skrin penuh, tiada potongan, tiada herotan), jalur sisi nipis 176 px (landskap Minecraft kabur dari dunia anda).
 - **Jalur sari kata khas** di bawah gameplay → sari kata **tidak menutup gameplay** (hotbar, soalan, jawapan kekal jelas).
 - Panel kiri: logo teks "MISI PENYELAMAT AYAT" + label bab semasa (Bahagian/Jenis). Panel kanan: lencana "⏩ 1.5x" hanya semasa bahagian dipercepat.
 
 ### Sari kata
-- Fon Montserrat Bold 40 px, putih + garis luar hitam 4 px, maksimum 2 baris (~45 aksara/baris), diselaraskan dengan masa perkataan.
+- Fon Montserrat SemiBold 36 px (kata kunci Montserrat Bold), putih + garis luar hitam 4 px, maksimum 2 baris (~45 aksara/baris), diselaraskan dengan masa perkataan.
 - Istilah penting **kuning** (cth. *Misi Penyelamat Ayat, +100 markah, −50 markah, subjek, predikat, ayat aktif, ayat pasif, pingat*), objek permainan **hijau** (cth. *blok warna, peti, glowstone, plat besi, NPC, bingkai, blok emas*).
 - Nama ditulis tepat: **Mohamad Aliff bin Ahmad Shahabuddin**, **Puan Julina binti Tarikat**.
 - Draf penuh sari kata (selepas pembetulan ejaan) — lihat bahagian di bawah.
@@ -90,7 +99,7 @@ Peraturan kelajuan yang digunakan:
 ### Penggantian latar belakang guru
 - Teknik: **Robust Video Matting (ResNet-50)**, diproses berurutan bingkai demi bingkai (temporal) pada resolusi 2× untuk tepi rambut/bahu yang kemas.
 - Babak 1 (intro): latar hitam + sisa beg dibuang → guru diletak di hadapan landskap Minecraft (dunia anda sendiri, kabur lembut) — sedikit ke kanan, lower-third nama di kiri.
-- Babak 2–24: inset kamera kiri bawah — bilik tidur dibuang → landskap Minecraft, dengan bingkai piksel hijau.
+- Babak 2–24: inset kamera kiri bawah — bilik tidur dibuang → landskap Minecraft, dengan bingkai piksel hijau. Facecam bulat **tidak disentuh**.
 - Wajah, badan, pakaian dan pergerakan asal **tidak diubah**. Tiada avatar.
 
 ### Mockup (bingkai contoh — dijana daripada rakaman sebenar anda)
